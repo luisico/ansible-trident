@@ -7,4 +7,4 @@ svm_name:
 storage_driver_name: ontap-nas
 nfs_mount_options: 'vers=3'
 default_export_policy: all_access
-size": 1G
+size: 1G
