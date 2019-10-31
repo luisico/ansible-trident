@@ -1,0 +1,8 @@
+---
+- name: Disable netapp plugin
+  shell: docker plugin disable netapp:latest
+  listen: "Restart netapp plugin"
+
+- name: Enable netapp plugin
+  shell: docker plugin enable netapp:latest
+  listen: "Restart netapp plugin"
