@@ -6,9 +6,10 @@
     "svm": "{{svm_name}}",
     "username": "{{netapp_cluster_user}}",
     "password": "{{netapp_cluster_password}}",
-    "nfsMountOptions": "{{nfs_mount_options}}"
-    "defaults": {
-      "size": "{{size}}"
+    {% if nfs_server is defined and nfs_server == True %}
+"nfsMountOptions": "{{nfs_mount_options}}",
+    {% endif %}
+"defaults": {
       "size": "{{size}}",
       "spaceReserve": "none",
       "exportPolicy": "{{default_export_policy}}"

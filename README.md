@@ -29,6 +29,7 @@ Example:
          netapp_cluster_management_ip: 10.10.10.1
          svm_ip: 10.10.10.20
          svm_name: nfs_svm
+         nfs_server: True
   
 ```
 
