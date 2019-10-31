@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "storageDriverName": "{{storage_driver_name}}",
+    "managementLIF": "{{netapp_cluster_management_ip}}",
+    "dataLIF": "{{svm_ip}}",
+    "svm": "{{svm_name}}",
+    "username": "{{netapp_cluster_user}}",
+    "password": "{{netapp_cluster_password}}",
+    "nfsMountOptions": "{{nfs_mount_options}}"
+    "defaults": {
+      "size": "{{size}}"
+      "spaceReserve": "none",
+      "exportPolicy": "{{default_export_policy}}"
+    }
+}
