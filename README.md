@@ -14,6 +14,9 @@ Dependencies
 ------------
 * EPEL repositories need to be available, ie using role `geerlingguy.repo-epel`.  
 * Docker engine needs to installed, ie using role `luisico.docker`.   
+* NFS Utils needs to be installed if NFS-based storage is used. ie using `luisco.nfs`   
+* iSCSI packages needs to be installed if iSCSI-based storage is used.   
+  For more details visit https://netapp-trident.readthedocs.io/en/stable-v19.07/docker/install/host_config.html#iscsi
 
 Example Playbook
 ----------------
@@ -23,6 +26,9 @@ Example:
   roles: 
      - role: geerlingguy.repo-epel
      - role: luisico.docker
+     - role: ansible-nfs
+       vars:
+         nfs_mode: client
      - role: trident
        vars:
          trident_cluster_user: admin
@@ -39,6 +45,7 @@ Example requirements.yml
 ```
 - {src: geerlingguy.repo-epel, version: 1.2.3}
 - {src: luisico.docker, version: 2.0.0}
+- {src: 'https://github.com/luisico/ansible-nfs.git', scm: git}
 - {src: 'git@rcode.rockefeller.edu:cce/ansible-roles/trident.git', scm: git}
 
 ```

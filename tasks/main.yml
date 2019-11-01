@@ -1,10 +1,4 @@
 ---
-- name: Install nfs-utils
-  yum: name=nfs-utils state=present
-
-- name: Enable RPCBind
-  service: name=rpcbind state=started enabled=true
-
 - name: Create directory for trident config
   file: path=/etc/netappdvp/ state=directory
 
