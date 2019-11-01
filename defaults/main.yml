@@ -1,10 +1,10 @@
 ---
-netapp_cluster_user:
-netapp_cluster_password:
-netapp_cluster_management_ip:
-svm_ip:
-svm_name:
-storage_driver_name: ontap-nas
-nfs_mount_options: 'vers=3'
-default_export_policy: all_access
-size: 1G
+trident_cluster_user:
+trident_cluster_password:
+trident_cluster_management_ip:
+trident_svm_ip:
+trident_svm_name:
+trident_storage_driver_name: ontap-nas
+trident_nfs_mount_options: 'vers=3'
+trident_default_export_policy: all_access
+trident_size: 1G

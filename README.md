@@ -24,12 +24,12 @@ Example:
   roles: 
      - role: trident
        vars:
-         netapp_cluster_user: admin
-         netapp_cluster_password: password
-         netapp_cluster_management_ip: 10.10.10.1
-         svm_ip: 10.10.10.20
-         svm_name: nfs_svm
-         nfs_server: True
+         trident_cluster_user: admin
+         trident_cluster_password: password
+         trident_cluster_management_ip: 10.10.10.1
+         trident_svm_ip: 10.10.10.20
+         trident_svm_name: nfs_svm
+         trident_nfs_server: True
   
 ```
 
