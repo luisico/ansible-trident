@@ -31,13 +31,15 @@ Example:
          nfs_mode: client
      - role: trident
        vars:
-         trident_cluster_user: admin
-         trident_cluster_password: password
-         trident_cluster_management_ip: 10.10.10.1
-         trident_svm_ip: 10.10.10.20
-         trident_svm_name: nfs_svm
-         trident_nfs_server: True
+         trident_username: admin
+         trident_pasword: password
+         trident_managementLIF: 10.10.10.1
+         trident_dataLIF: 10.10.10.20
+         trident_svm: nfs_svm
 ```
+
+**Note:** Currently variables defined in `defaults/main.yml` are only supported.   
+For details about variables, please use following link https://netapp-trident.readthedocs.io/en/stable-v19.07/docker/install/ndvp_ontap_config.html#configuration-file-options
 
 Licence
 -------
