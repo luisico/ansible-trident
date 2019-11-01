@@ -39,17 +39,6 @@ Example:
          trident_nfs_server: True
 ```
 
-Example requirements.yml
-----------
-
-```
-- {src: geerlingguy.repo-epel, version: 1.2.3}
-- {src: luisico.docker, version: 2.0.0}
-- {src: 'https://github.com/luisico/ansible-nfs.git', scm: git}
-- {src: 'git@rcode.rockefeller.edu:cce/ansible-roles/trident.git', scm: git}
-
-```
-
 Licence
 -------
 Released under the [MIT license](https://opensource.org/licenses/MIT).
