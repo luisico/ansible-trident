@@ -6,11 +6,11 @@
     "svm": "{{trident_svm}}",
     "username": "{{trident_username}}",
     "password": "{{trident_password}}",
-    {% if trident_nfsMountOptions is defined %}
-"nfsMountOptions": "{{trident_nfsMountOptions}}",
-    {% endif %}
-"defaults": {
-      "size": "{{trident_default_size}}",
-      "exportPolicy": "{{trident_default_export_policy}}"
+{% if trident_nfsMountOptions is defined %}
+    "nfsMountOptions": "{{trident_nfsMountOptions}}",
+{% endif %}
+    "defaults": {
+        "size": "{{trident_default_size}}",
+        "exportPolicy": "{{trident_default_export_policy}}"
     }
 }
