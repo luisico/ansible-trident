@@ -1,6 +1,6 @@
 ---
 trident_username:
-trident_pasword:
+trident_password:
 trident_managementLIF:
 trident_dataLIF:
 trident_svm:

@@ -32,7 +32,7 @@ Example:
      - role: trident
        vars:
          trident_username: admin
-         trident_pasword: password
+         trident_password: password
          trident_managementLIF: 10.10.10.1
          trident_dataLIF: 10.10.10.20
          trident_svm: nfs_svm
