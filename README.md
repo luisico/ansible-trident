@@ -1,5 +1,5 @@
 # trident
-                            
+
 Install and configure trident (netap storage orchestrator)
 
 Requirements
@@ -12,10 +12,10 @@ See `defaults/main.yml` for all options.
 
 Dependencies
 ------------
-* EPEL repositories need to be available, ie using role `geerlingguy.repo-epel`.  
-* Docker engine needs to installed, ie using role `luisico.docker`.   
-* NFS Utils needs to be installed if NFS-based storage is used. ie using `luisco.nfs`   
-* iSCSI packages needs to be installed if iSCSI-based storage is used.   
+* EPEL repositories need to be available, ie using role `geerlingguy.repo-epel`.
+* Docker engine needs to installed, ie using role `luisico.docker`.
+* NFS Utils needs to be installed if NFS-based storage is used. ie using `luisco.nfs`
+* iSCSI packages needs to be installed if iSCSI-based storage is used.
   For more details visit https://netapp-trident.readthedocs.io/en/stable-v19.07/docker/install/host_config.html#iscsi
 
 Example Playbook
@@ -23,7 +23,7 @@ Example Playbook
 Example:
 ```
 - hosts: all
-  roles: 
+  roles:
      - role: geerlingguy.repo-epel
      - role: luisico.docker
      - role: ansible-nfs
@@ -38,7 +38,7 @@ Example:
          trident_svm: nfs_svm
 ```
 
-**Note:** Currently variables defined in `defaults/main.yml` are only supported.   
+**Note:** Currently variables defined in `defaults/main.yml` are only supported.
 For details about variables, please use following link https://netapp-trident.readthedocs.io/en/stable-v19.07/docker/install/ndvp_ontap_config.html#configuration-file-options
 
 Licence
