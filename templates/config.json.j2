@@ -1,17 +1,16 @@
 {
     "version": 1,
-    "storageDriverName": "{{storage_driver_name}}",
-    "managementLIF": "{{netapp_cluster_management_ip}}",
-    "dataLIF": "{{svm_ip}}",
-    "svm": "{{svm_name}}",
-    "username": "{{netapp_cluster_user}}",
-    "password": "{{netapp_cluster_password}}",
-    {% if nfs_server is defined and nfs_server == True %}
-"nfsMountOptions": "{{nfs_mount_options}}",
-    {% endif %}
-"defaults": {
-      "size": "{{size}}",
-      "spaceReserve": "none",
-      "exportPolicy": "{{default_export_policy}}"
+    "storageDriverName": "{{trident_storageDriverName}}",
+    "managementLIF": "{{trident_managementLIF}}",
+    "dataLIF": "{{trident_dataLIF}}",
+    "svm": "{{trident_svm}}",
+    "username": "{{trident_username}}",
+    "password": "{{trident_password}}",
+{% if trident_nfsMountOptions is defined %}
+    "nfsMountOptions": "{{trident_nfsMountOptions}}",
+{% endif %}
+    "defaults": {
+        "size": "{{trident_default_size}}",
+        "exportPolicy": "{{trident_default_export_policy}}"
     }
 }

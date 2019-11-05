@@ -1,10 +1,4 @@
 ---
-- name: Install nfs-utils
-  yum: name=nfs-utils state=present
-
-- name: Enable RPCBind
-  service: name=rpcbind state=started enabled=true
-
 - name: Create directory for trident config
   file: path=/etc/netappdvp/ state=directory
 
@@ -13,7 +7,7 @@
   notify: "Restart netapp plugin"
 
 - name: Install trident
-  shell: docker plugin install --grant-all-permissions --alias netapp netapp/trident-plugin:19.07 config=/etc/netappdvp/config.json
+  command: docker plugin install --grant-all-permissions --alias netapp netapp/trident-plugin:19.07 config=/etc/netappdvp/config.json
   register: trident__r_install_plugin
   changed_when: "'already exists' not in trident__r_install_plugin.stderr"
   failed_when:
