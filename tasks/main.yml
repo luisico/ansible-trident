@@ -6,10 +6,12 @@
   template: dest=/etc/netappdvp/config.json src=config.json.j2 mode=0644 owner=root group=root
   notify: "Restart netapp plugin"
 
+- name: Find already installed docker plugins
+  command: docker plugin ls --format {% raw %}'{{.Name}} {{.Enabled}}'{% endraw %}
+  check_mode: no
+  register: trident__r_plugins
+
 - name: Install trident
-  command: docker plugin install --grant-all-permissions --alias netapp netapp/trident-plugin:19.07 config=/etc/netappdvp/config.json
-  register: trident__r_install_plugin
-  changed_when: "'already exists' not in trident__r_install_plugin.stderr"
-  failed_when:
-    - "not ('Installed plugin netapp/trident-plugin:19.07' in trident__r_install_plugin.stdout)"
-    - "not ('plugin netapp:latest already exists' in trident__r_install_plugin.stderr)"
+  command: docker plugin install --grant-all-permissions --alias netapp:{{trident_version}} netapp/trident-plugin:{{trident_version}} config=/etc/netappdvp/config.json
+  when: "'netapp:' + trident_version not in trident__r_plugins.stdout_lines"
+  notify: "Restart netapp plugin"

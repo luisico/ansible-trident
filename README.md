@@ -39,7 +39,7 @@ Example:
 ```
 
 **Note:** Currently variables defined in `defaults/main.yml` are only supported.
-For details about variables, please use following link https://netapp-trident.readthedocs.io/en/stable-v19.07/docker/install/ndvp_ontap_config.html#configuration-file-options
+For details about variables, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install/ndvp_ontap_config.html#configuration-file-options)
 
 Licence
 -------
