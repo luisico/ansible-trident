@@ -1,8 +1,0 @@
----
-- name: Disable netapp plugin
-  command: docker plugin disable {{trident_alias}}:{{trident_version}}
-  listen: "Restart netapp plugin"
-
-- name: Enable netapp plugin
-  command: docker plugin enable {{trident_alias}}:{{trident_version}}
-  listen: "Restart netapp plugin"

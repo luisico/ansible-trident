@@ -38,8 +38,7 @@ Example:
          trident_svm: nfs_svm
 ```
 
-**Note:** Currently variables defined in `defaults/main.yml` are only supported.
-For details about variables, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install/ndvp_ontap_config.html#configuration-file-options)
+Any configuration options defined in `trident_instances` or `trident_defaults` will be transform into a JSON configuration file. For details about options, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install).
 
 Licence
 -------
