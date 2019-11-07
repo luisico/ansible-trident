@@ -53,5 +53,5 @@ Vineet Palan while at [The Rockefeller University](https://www.rockefeller.edu):
 
 Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):
 - lgracia [at] rockefeller.edu
-- GitHub at [vineetpalan](https://github.com/luisico)
-- Galaxy at [vineetpalan](https://galaxy.ansible.com/luisico)
+- GitHub at [luisico](https://github.com/luisico)
+- Galaxy at [luisico](https://galaxy.ansible.com/luisico)
