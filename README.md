@@ -31,11 +31,14 @@ Example:
          nfs_mode: client
      - role: trident
        vars:
-         trident_username: admin
-         trident_password: password
-         trident_managementLIF: 10.10.10.1
-         trident_dataLIF: 10.10.10.20
-         trident_svm: nfs_svm
+         trident_instances:
+           - alias: netapp
+             version: "19.10"
+             username: admin
+             password: password
+             managementLIF: 10.10.10.1
+             dataLIF: 10.10.10.20
+             svm: nfs_svm
 ```
 
 Any configuration options defined in `trident_instances` or `trident_defaults` will be transform into a JSON configuration file. For details about options, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install).
