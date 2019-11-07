@@ -3,7 +3,7 @@
   file: path=/etc/netappdvp/ state=directory
 
 - name: Configure trident
-  template: dest=/etc/netappdvp/config.json src=config.json.j2 mode=0644 owner=root group=root
+  template: dest=/etc/netappdvp/{{trident_alias}}_{{trident_version}}.json src=config.json.j2 mode=0644 owner=root group=root
   notify: "Restart netapp plugin"
 
 - name: Find all installed docker plugins
@@ -13,7 +13,7 @@
   register: trident__r_plugins_installed
 
 - name: Install trident
-  command: docker plugin install --disable --grant-all-permissions --alias {{trident_alias}}:{{trident_version}} netapp/trident-plugin:{{trident_version}} config=/etc/netappdvp/config.json
+  command: docker plugin install --disable --grant-all-permissions --alias {{trident_alias}}:{{trident_version}} netapp/trident-plugin:{{trident_version}} config=/etc/netappdvp/{{trident_alias}}_{{trident_version}}.json
   when: "(trident_alias + ':' + trident_version) not in trident__r_plugins_installed.stdout_lines"
 
 - name: Find enabled docker plugins
