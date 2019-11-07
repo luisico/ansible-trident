@@ -1,4 +1,5 @@
 ---
+trident_alias: netapp
 trident_version: latest
 trident_username:
 trident_password:

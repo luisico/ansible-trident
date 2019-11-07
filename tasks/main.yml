@@ -13,8 +13,8 @@
   register: trident__r_plugins_installed
 
 - name: Install trident
-  command: docker plugin install --disable --grant-all-permissions --alias netapp:{{trident_version}} netapp/trident-plugin:{{trident_version}} config=/etc/netappdvp/config.json
-  when: "'netapp:' + trident_version not in trident__r_plugins_installed.stdout_lines"
+  command: docker plugin install --disable --grant-all-permissions --alias {{trident_alias}}:{{trident_version}} netapp/trident-plugin:{{trident_version}} config=/etc/netappdvp/config.json
+  when: "(trident_alias + ':' + trident_version) not in trident__r_plugins_installed.stdout_lines"
 
 - name: Find enabled docker plugins
   command: docker plugin ls -f enabled=true --format {% raw %}'{{.Name}}'{% endraw %}
@@ -26,9 +26,9 @@
   command: docker plugin disable {{item}}
   loop: '{{trident__r_plugins_enabled.stdout_lines}}'
   when:
-    - item | regex_replace('^(.*):.*$', '\\1') == 'netapp'
-    - item != 'netapp:' + trident_version
+    - item | regex_replace('^(.*):.*$', '\\1') == trident_alias
+    - item != (trident_alias + ':' + trident_version)
 
 - name: Ensure correct version in enabled
-  command: docker plugin enable netapp:{{trident_version}}
-  when: "'netapp:' + trident_version not in trident__r_plugins_enabled.stdout_lines"
+  command: docker plugin enable {{trident_alias}}:{{trident_version}}
+  when: "(trident_alias + ':' + trident_version) not in trident__r_plugins_enabled.stdout_lines"
