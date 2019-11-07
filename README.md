@@ -50,3 +50,8 @@ Vineet Palan while at [The Rockefeller University](https://www.rockefeller.edu):
 - vpalan [at] rockefeller.edu
 - GitHub at [vineetpalan](https://github.com/vineetpalan)
 - Galaxy at [vineetpalan](https://galaxy.ansible.com/vineetpalan)
+
+Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):
+- lgracia [at] rockefeller.edu
+- GitHub at [vineetpalan](https://github.com/luisico)
+- Galaxy at [vineetpalan](https://galaxy.ansible.com/luisico)
