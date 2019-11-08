@@ -24,22 +24,25 @@ Example:
 ```
 - hosts: all
   roles:
-     - role: geerlingguy.repo-epel
-     - role: luisico.docker
+     - geerlingguy.repo-epel
+     - luisico.docker
      - role: ansible-nfs
-       vars:
-         nfs_mode: client
+       nfs_mode: client
      - role: trident
-       vars:
-         trident_username: admin
-         trident_password: password
-         trident_managementLIF: 10.10.10.1
-         trident_dataLIF: 10.10.10.20
-         trident_svm: nfs_svm
+       trident_instances:
+         - alias: netapp
+           version: "19.10"
+         - alias: edge
+           version: latest
+       trident_defaults:
+         username: user
+         password: password
+         managementLIF: 10.10.10.1
+         dataLIF: 10.10.10.20
+         svm: nfs_svm
 ```
 
-**Note:** Currently variables defined in `defaults/main.yml` are only supported.
-For details about variables, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install/ndvp_ontap_config.html#configuration-file-options)
+Any configuration options defined in `trident_instances` or `trident_defaults` will be transform into a JSON configuration file. For details about options, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install).
 
 Licence
 -------
@@ -51,3 +54,8 @@ Vineet Palan while at [The Rockefeller University](https://www.rockefeller.edu):
 - vpalan [at] rockefeller.edu
 - GitHub at [vineetpalan](https://github.com/vineetpalan)
 - Galaxy at [vineetpalan](https://galaxy.ansible.com/vineetpalan)
+
+Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):
+- lgracia [at] rockefeller.edu
+- GitHub at [luisico](https://github.com/luisico)
+- Galaxy at [luisico](https://galaxy.ansible.com/luisico)
