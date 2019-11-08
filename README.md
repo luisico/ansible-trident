@@ -35,7 +35,7 @@ Example:
          - alias: edge
            version: latest
        trident_defaults:
-         username: admin
+         username: user
          password: password
          managementLIF: 10.10.10.1
          dataLIF: 10.10.10.20
