@@ -24,24 +24,22 @@ Example:
 ```
 - hosts: all
   roles:
-     - role: geerlingguy.repo-epel
-     - role: luisico.docker
+     - geerlingguy.repo-epel
+     - luisico.docker
      - role: ansible-nfs
-       vars:
-         nfs_mode: client
+       nfs_mode: client
      - role: trident
-       vars:
-         trident_instances:
-           - alias: netapp
-             version: "19.10"
-           - alias: edge
-             version: latest
-         trident_defaults:
-           username: admin
-           password: password
-           managementLIF: 10.10.10.1
-           dataLIF: 10.10.10.20
-           svm: nfs_svm
+       trident_instances:
+         - alias: netapp
+           version: "19.10"
+         - alias: edge
+           version: latest
+       trident_defaults:
+         username: admin
+         password: password
+         managementLIF: 10.10.10.1
+         dataLIF: 10.10.10.20
+         svm: nfs_svm
 ```
 
 Any configuration options defined in `trident_instances` or `trident_defaults` will be transform into a JSON configuration file. For details about options, please, see [Trident's documentation](https://netapp-trident.readthedocs.io/en/latest/docker/install).
