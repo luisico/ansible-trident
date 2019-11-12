@@ -4,7 +4,7 @@
     config: '{{instance | dict2items | rejectattr("key", "in", ["version", "alias"]) | list | items2dict | combine({"version": 1})}}'
 
 - name: Configure plugin instance ({{instance.alias}} {{instance.version}})
-  copy: dest=/etc/netappdvp/{{instance.alias}}_{{instance.version}}.json content='{{config | to_nice_json}}' mode=0644 owner=root group=root
+  copy: dest=/etc/netappdvp/{{instance.alias}}_{{instance.version}}.json content='{{config | to_nice_json}}' mode=0600 owner=root group=root
   register: trident__r_config
 
 - name: Find all installed docker plugins
