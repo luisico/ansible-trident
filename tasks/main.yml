@@ -7,4 +7,4 @@
   loop_control:
     label: '{{instance.alias}} {{instance.version}}'
   vars:
-    instance: '{{trident_defaults | combine(item)}}'
+    instance: '{{trident_defaults | combine(item, recursive=True)}}'
