@@ -1,10 +1,11 @@
 ---
-- name: Set plugin instance's configuration instance ({{instance.alias}} {{instance.version}})
+- name: Set plugin instance's configuration for instance {{instance.alias}} (version {{instance.version}})
   set_fact:
-    config: '{{instance | dict2items | rejectattr("key", "in", ["version", "alias"]) | list | items2dict | combine({"version": 1})}}'
+    trident_instance_config: '{{instance | dict2items | rejectattr("key", "in", ["version", "alias"]) | list | items2dict | combine({"version": 1})}}'
+    trident_instance_name: '{{(":" in instance.alias) | ternary(instance.alias, instance.alias + ":" + instance.version) }}'
 
-- name: Configure plugin instance ({{instance.alias}} {{instance.version}})
-  copy: dest=/etc/netappdvp/{{instance.alias}}_{{instance.version}}.json content='{{config | to_nice_json}}' mode=0600 owner=root group=root
+- name: Configure plugin instance {{trident_instance_name}} (version {{instance.version}})
+  copy: dest=/etc/netappdvp/{{trident_instance_name | regex_replace('[/:]', '_')}}.json content='{{trident_instance_config | to_nice_json}}' mode=0600 owner=root group=root
   register: trident__r_config
 
 - name: Find all installed docker plugins
@@ -13,13 +14,13 @@
   changed_when: no
   register: trident__r_plugins_installed
 
-- name: Install plugin instance ({{instance.alias}} {{instance.version}})
-  command: docker plugin install --grant-all-permissions --alias {{instance.alias}}:{{instance.version}} netapp/trident-plugin:{{instance.version}} config=/etc/netappdvp/{{instance.alias}}_{{instance.version}}.json
-  when: "(instance.alias + ':' + instance.version) not in trident__r_plugins_installed.stdout_lines"
+- name: Install plugin instance {{trident_instance_name}} (version {{instance.version}})
+  command: docker plugin install --grant-all-permissions --alias {{trident_instance_name}} netapp/trident-plugin:{{instance.version}} config=/etc/netappdvp/{{trident_instance_name | regex_replace('[/:]', '_')}}.json
+  when: "trident_instance_name not in trident__r_plugins_installed.stdout_lines"
   register: trident__r_install
 
-- name: Restart plugin instance ({{instance.alias}} {{instance.version}})
+- name: Restart plugin instance {{trident_instance_name}} (version {{instance.version}})
   shell: >-
-    docker plugin disable {{instance.alias}}:{{instance.version}} &&
-    docker plugin enable {{instance.alias}}:{{instance.version}}
+    docker plugin disable {{trident_instance_name}} &&
+    docker plugin enable {{trident_instance_name}}
   when: trident__r_config.changed or trident__r_install.changed
