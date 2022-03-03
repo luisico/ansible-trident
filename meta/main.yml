@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: trident
   author: Luis Gracia and Vineet Palan
   description: Install and configure trident (netapp storage orchestrator)
   company: The Rockefeller University
