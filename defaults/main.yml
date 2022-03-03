@@ -4,7 +4,8 @@
 
 # In addition, the following is mandatory:
 # - alias: alias used to installed the plugin.
-# - version: plugin version to install. Note that the "official" option `version` refers to the config file version number (always equal to "1" and injected by the role) and is different from the meaning in the playbook.
+# - version: plugin version to install. Note that the "official" option `version` refers to the config file
+#            version number (always equal to "1" and injected by the role) and is different from the meaning in the playbook.
 
 # Example:
 # trident_instances:
