@@ -1,10 +1,15 @@
 ---
 - name: Create directory for trident config
-  file: path=/etc/netappdvp/ state=directory mode=0700 owner=root group=root
+  file:
+    path: /etc/netappdvp/
+    state: directory
+    mode: '0700'
+    owner: root
+    group: root
 
 - include_tasks: instance.yml
-  loop: '{{trident_instances}}'
+  loop: '{{ trident_instances }}'
   loop_control:
-    label: '{{instance.alias}} {{instance.version}}'
+    label: '{{ instance.alias }} {{ instance.version }}'
   vars:
-    instance: '{{trident_defaults | combine(item, recursive=True)}}'
+    instance: '{{ trident_defaults | combine(item, recursive=True) }}'
