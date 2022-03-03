@@ -3,7 +3,7 @@ galaxy_info:
   description: Install and configure trident (netapp storage orchestrator)
   company: The Rockefeller University
   license: MIT
-  min_ansible_version: 2.7
+  min_ansible_version: 2.9
   platforms:
     - name: EL
       versions:
