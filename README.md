@@ -50,12 +50,10 @@ Released under the [MIT license](https://opensource.org/licenses/MIT).
 
 Author Information
 ------------------
-Vineet Palan while at [The Rockefeller University](https://www.rockefeller.edu):
-- vpalan [at] rockefeller.edu
-- GitHub at [vineetpalan](https://github.com/vineetpalan)
-- Galaxy at [vineetpalan](https://galaxy.ansible.com/vineetpalan)
-
 Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):
 - lgracia [at] rockefeller.edu
 - GitHub at [luisico](https://github.com/luisico)
 - Galaxy at [luisico](https://galaxy.ansible.com/luisico)
+
+Vineet Palan while at [The Rockefeller University](https://www.rockefeller.edu):
+- GitHub at [vineetpalan](https://github.com/vineetpalan)
